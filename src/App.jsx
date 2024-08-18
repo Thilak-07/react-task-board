@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
-import InputForm from "./InputForm";
-import ListSection from "./ListSection";
+import InputForm from "./components/InputForm";
+import ListSection from "./components/ListSection";
 
 function App() {
   const [todos, setTodos] = useState([]);
