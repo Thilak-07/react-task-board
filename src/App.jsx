@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
 import InputForm from "./InputForm";
+import ListSection from "./ListSection";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -34,33 +35,13 @@ function App() {
 
   return (
     <>
-      <InputForm addTodo={addTodo}/>
-
+      <InputForm addTodo={addTodo} />
       <h1 className="Header">Todo List</h1>
-
-      <ul className="list">
-        {todos.length === 0 && "List is Empty"}
-        {todos.map((todo) => {
-          return (
-            <li key={todo.id}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={todo.completed}
-                  onChange={(e) => toggleTodo(todo.id, e.target.checked)}
-                />
-                {todo.title}
-              </label>
-              <button
-                onClick={() => handleDelete(todo.id)}
-                className="btn btn-danger"
-              >
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <ListSection
+        todos={todos}
+        toggleTodo={toggleTodo}
+        handleDelete={handleDelete}
+      />
     </>
   );
 }
